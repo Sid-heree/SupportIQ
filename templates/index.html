@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SupportIQ Workspace</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS via Flask url_for -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Marked.js Markdown Library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="brand">
+            <i class="fa-solid fa-robot"></i>
+            <span>SupportIQ</span>
+        </div>
+        <div class="nav-menu">
+            <button class="nav-btn active" onclick="switchTab('workspace-tab', this)">
+                <i class="fa-solid fa-headset"></i> Agent Workspace
+            </button>
+            <button class="nav-btn" onclick="switchTab('database-tab', this)">
+                <i class="fa-solid fa-database"></i> Ticket Explorer
+            </button>
+            <button class="nav-btn" onclick="switchTab('analytics-tab', this)">
+                <i class="fa-solid fa-chart-line"></i> System Health
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <!-- Top Header -->
+        <div class="top-header">
+            <h1 id="header-title">Agent Workspace</h1>
+            <div class="status-badge">
+                <div class="status-dot"></div>
+                Engine Online
+            </div>
+        </div>
+
+        <!-- Tab 1: Agent Workspace -->
+        <div id="workspace-tab" class="tab-content active">
+            <div class="chat-container">
+                
+                <!-- NEW: Predictive ML Meta Bar (Hidden by default) -->
+                <div id="ticket-meta" style="display: none; padding: 12px 20px; background: #f8fafc; border-bottom: 1px solid var(--border-color); gap: 10px; align-items: center;">
+                    <span style="font-size: 13px; font-weight: 600; color: var(--text-muted);">AI Predictions:</span>
+                    <span id="meta-dept" class="status-badge" style="background: #e0f2fe; color: #0284c7;">Dept</span>
+                    <span id="meta-priority" class="status-badge" style="background: #fee2e2; color: #991b1b;">Priority</span>
+                    <!-- Updated Label to align with the backend Python mapping -->
+                    <span id="meta-eta" class="status-badge" style="background: #fef9c3; color: #854d0e;">Queue</span>
+                </div>
+
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Chat bubbles go here... -->
+                    <div class="message-row bot-row">
+                        <div class="bubble">Welcome to SupportIQ. Enter a customer issue below to retrieve historical solutions, predict priority, and draft a response.</div>
+                    </div>
+                </div>
+                <!-- Chat Input Area -->
+                <div class="chat-input-area">
+                    <input type="text" id="user-input" placeholder="Type support query..." onkeypress="if(event.key === 'Enter') handleSend()">
+                    <button class="send-button" onclick="handleSend()">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Vector Context View -->
+            <div class="context-container" id="context-container">
+                <h3 style="font-size:16px; margin-bottom:12px;">Vector DB Retrieval</h3>
+                <p style="color:var(--text-muted); font-size:13px;">Historical context retrieved from FAISS will populate here automatically.</p>
+            </div>
+        </div>
+
+        <!-- Tab 2: Ticket Explorer -->
+        <div id="database-tab" class="tab-content">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Ticket ID</th>
+                        <th>Issue Summary</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody id="ticket-table-body">
+                    <!-- Real data will be injected here by JavaScript! -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tab 3: System Health -->
+        <div id="analytics-tab" class="tab-content">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h4>Base Foundation Model</h4>
+                    <div class="value">Qwen/Qwen1.5-0.5B</div>
+                </div>
+                <div class="metric-card">
+                    <h4>LoRA Adapter Status</h4>
+                    <div class="value" style="color: var(--accent-green);">Loaded (Rank=8)</div>
+                </div>
+                <div class="metric-card">
+                    <h4>Vector Index</h4>
+                    <div class="value">FAISS (MiniLM-L6)</div>
+                </div>
+                <div class="metric-card">
+                    <h4>Inference Device</h4>
+                    <div class="value">CPU (Standard)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JS via Flask url_for -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

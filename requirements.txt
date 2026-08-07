@@ -1,0 +1,43 @@
+# Data Manipulation & EDA
+pandas
+numpy
+matplotlib
+seaborn
+
+# Machine Learning
+scikit-learn
+xgboost
+catboost
+lightgbm
+
+# Explainability
+shap
+lime
+
+# Jupyter for notebooks
+jupyter
+ipykernel
+
+# NLP & Embeddings (Phase 3)
+sentence-transformers
+spacy
+gensim
+scikit-learn
+
+# Deep Learning (Phase 4)
+torch
+transformers
+datasets
+evaluate
+accelerate
+
+# LLM Fine-Tuning (Phase 5)
+peft
+trl
+bitsandbytes
+
+# RAG Engine (Phase 6)
+langchain
+langchain-community
+langchain-huggingface
+faiss-cpu

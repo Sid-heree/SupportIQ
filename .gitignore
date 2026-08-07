@@ -1,0 +1,52 @@
+# Environments
+.venvIQ/
+.venv/
+env/
+venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter Checkpoints
+.ipynb_checkpoints/
+
+# IDEs and Editors
+.vscode/
+.idea/
+
+# Environment Variables & Secrets
+.env
+.env.local
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+
+# --- BULLETPROOF IGNORES FOR DATA, MODELS & VECTORS ---
+# Ignore any CSV or Excel files anywhere in the project
+*.csv
+*.xlsx
+*.parquet
+
+# Ignore all model files, weights, and pickled objects globally
+*.pkl
+*.joblib
+*.pt
+*.pth
+*.safetensors
+*.bin
+*.h5
+*.onnx
+
+# Ignore entire data, models, and vector store directories
+data/
+models/
+rag/
+vector_store/
+faiss_index/
+
+# Logs
+*.log
