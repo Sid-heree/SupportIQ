@@ -1,4 +1,4 @@
-# SupportIQ 🤖💬
+# SupportIQ💬
 *An AI-powered customer support workspace that actually makes triage smart and fast.*
 
 ---
@@ -14,7 +14,7 @@
 
 ---
 
-## 💡 What Problem Does This Solve?
+## What Problem Does This Solve?
 
 Customer support teams are constantly drowning in repetitive tickets. Human agents waste valuable time manually reading issues, guessing priorities, figuring out which department queue they belong to, and digging through old resolved tickets to find a fix. 
 
@@ -37,7 +37,7 @@ I designed SupportIQ with a clean separation of concerns between traditional mac
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Machine Learning & NLP:** Python, Scikit-Learn, PyTorch, Hugging Face Transformers, LangChain, FAISS
 * **Backend:** Flask REST API, Pandas, Joblib
@@ -46,7 +46,7 @@ I designed SupportIQ with a clean separation of concerns between traditional mac
 
 ---
 
-## 🚀 Getting Started Locally
+##  Getting Started Locally
 
 If you want to spin this up on your own machine, follow these steps:
 
